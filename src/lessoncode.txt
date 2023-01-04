@@ -1,0 +1,42 @@
+just all the code from the lesson, that I don't want cluttering the main script
+
+
+// process.on('exit', () => {
+    
+// })
+
+// const { EventEmitter } = require('events');
+// const eventEmitter = new EventEmitter(); 
+
+// eventEmitter.on('lunch', () => {
+//     console.log('woahh...')
+// });
+
+// eventEmitter.emit('lunch');
+// eventEmitter.emit('lunch');
+
+
+// const { readFile, readFileSync } = require('fs');
+
+/* Using readFileSync blocks the script, so no other code is executed until file is read */
+// const txt = readFileSync('./hello.txt', 'utf8');
+
+// console.log(txt);
+// console.log("do this thing");
+
+/* readFile works differently since, it calls a callback once the file is read, so the script is not blocked */
+// readFile('./hello.txt', 'utf8', (err, txt) => {
+//     console.log(txt);
+// });
+
+// console.log('do this immediately');
+
+const { readFile } = require('fs').promises;
+
+
+async function hello() {
+    const file = await readFile('./hello.txt', 'utf8');
+    console.log(file);
+}
+hello()
+console.log("fdf");
